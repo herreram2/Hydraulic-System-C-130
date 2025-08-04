@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Interactive Diagram</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="controls-wrapper">
+      <!-- Full-Length Vertical Line (Line 69) -->
+      <div class="vertical-line"></div>
+      <!-- Dashed Vertical Line on the Left Side of Controls Wrapper -->
+      <div class="vertical-dashed-line-left"></div>
+      <!-- Dashed Vertical Line on the Right Side of Controls Wrapper -->
+      <div class="vertical-dashed-line-right"></div>
+
+      <div class="vertical-controls">
+        <div id="block1" class="control-block left-connected">1. Elevator</div>
+        <div id="block2" class="control-block left-connected">2. Aileron</div>
+        <div id="block3" class="control-block left-connected">3. Rudder</div>
+        <!-- Utility Hydraulic System Block -->
+        <div id="utility-hydraulic-system" class="control-block left-connected">
+          Utility Hydraulic System (Engine 1 & 2)
+        </div>
+        <div id="block4" class="control-block left-connected">4. Wing Flaps</div>
+        <div id="block5" class="control-block left-connected">5. Main Landing Gear</div>
+        <div id="block6" class="control-block left-connected">6. Nose Landing Gear</div>
+        <div id="block7" class="control-block right-connected">7. Normal Brakes</div>
+        <div id="block8" class="control-block right-connected">8. Nose Wheel Steering</div>
+        <!-- Booster Hydraulic System Block -->
+        <div id="new-hydraulic-system" class="control-block right-connected">
+          Booster Hydraulic System (Engine 3 & 4)
+        </div>
+        <!-- Auxiliary Hydraulic System Block (Box 10) -->
+        <div id="auxiliary-hydraulic-system" class="control-block right-connected">
+          Auxiliary Hydraulic System
+        </div>
+        <!-- Vertical Line Between Auxiliary Hydraulic System and Ground Test Checkout Valve -->
+        <div class="vertical-line-between"></div>
+        <!-- New Block Beside Auxiliary Hydraulic System Block -->
+        <div id="new-block" class="control-block right-connected">
+          Ground Test Checkout Valve
+        </div>
+        <!-- Vertical Dashed Line 30px Below Ground Test Checkout Valve -->
+        <div id="ground-test-dashed-line" class="vertical-dashed-line"></div>
+        <!-- Red Horizontal Dashed Line at the Bottom of Vertical Dashed Line -->
+        <div id="red-horizontal-dashed-line" class="horizontal-dashed-line"></div>
+        <!-- Nose Landing Gear Emergency Extension Block -->
+        <div id="nose-landing-gear-emergency" class="control-block right-connected">
+          Nose Landing Gear Emergency Extension
+        </div>
+        <!-- Emergency Brakes Block -->
+        <div id="emergency-brakes" class="control-block right-connected">
+          Emergency Brakes
+        </div>
+        <!-- Horizontal Dashed Line Below Emergency Brakes Block -->
+        <div id="horizontal-dashed-line-below-emergency-brakes" class="horizontal-dashed-line"></div>
+        <!-- Cargo Ramp and Door Block -->
+        <div id="cargo-ramp-door" class="control-block right-connected">
+          Cargo Ramp and Door
+        </div>
+        <!-- Dashed Vertical Line Coming Out of Utility Hydraulic System Block -->
+        <div class="vertical-dashed-line-utility"></div>
+      </div>
+
+      <!-- Horizontal line connecting line 69 to block 9 -->
+      <div id="line69-to-block9"></div>
+
+    </div>
+    <script src="script.js"></script>
+  </div>
+</body>
+
+</html>

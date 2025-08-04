@@ -1,0 +1,410 @@
+/* General Body Styles */
+body {
+  font-family: "Arial", sans-serif;
+  background-color: #1c1c1c;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container Layout */
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Controls Wrapper Layout */
+.controls-wrapper {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  width: 80%;
+  margin-bottom: 30px;
+}
+
+/* Solid Vertical Line on the Right Side of Controls Wrapper */
+.controls-wrapper::after {
+  content: "";
+  position: absolute;
+  right: -100px; /* Adjusted to move the line slightly to the right */
+  top: 27px; /* Starts from the top of the wrapper */
+  height: calc(
+    8 * 10.99px + 5px
+  ); /* Match the height to align with the horizontal line of block 1 */
+  width: 2px; /* Thickness of the vertical line */
+  background-color: red; /* Color of the line */
+  transition: background-color 0.3s; /* Add transition for hover effects */
+}
+
+/* Full-Length Vertical Line */
+.vertical-line {
+  position: absolute;
+  left: -110px; /* Align with horizontal lines */
+  top: 28px;
+  height: calc(8 * 42px + 30px); /* Adjust height to fit all blocks properly */
+  width: 2px;
+  background-color: red;
+  transition: background-color 0.3s;
+}
+
+/* Dashed Vertical Line on the Left Side of Controls Wrapper */
+.vertical-dashed-line-left {
+  position: absolute;
+  left: -355px; /* Adjust position for 45px left of the existing vertical line */
+  top: 148px;
+  height: calc(502px + 1px);
+  width: 2px;
+  border-left: 2px dashed red;
+}
+
+/* Dashed Vertical Line 120px to the Right of Center */
+.vertical-dashed-line-right {
+  position: absolute;
+  left: calc(50% + 535px);
+  top: 450px;
+  height: calc(2 * 100px); /* Adjust height as needed */
+  width: 2px;
+  border-left: 2px dashed red;
+}
+
+/* Dashed Vertical Line Coming Out of Utility Hydraulic System Block */
+.vertical-dashed-line-utility {
+  position: absolute;
+  left: calc(120px + 500px);
+  top: calc(
+    1% + 330px
+  ); /* Position directly below the Utility Hydraulic System block */
+  height: 80px; /* Adjust the height as needed */
+  width: 2000px;
+  border-left: 2px dashed red;
+}
+
+/* Control Block Styling */
+.control-block {
+  background-color: #2e2e2e;
+  color: white;
+  padding: 10px 20px;
+  margin: 8px 0;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  position: relative;
+}
+
+/* Horizontal Lines for Blocks 1 to 6 (Combined with Full Vertical Line) */
+#block1::before,
+#block2::before,
+#block4::before,
+#block5::before,
+#block6::before {
+  content: "";
+  position: absolute;
+  left: -110px; /* Aligns with the vertical line */
+  top: 50%;
+  width: 110px;
+  height: 2px;
+  background-color: red;
+  transform: translateY(-50%);
+  transition: background-color 0.3s;
+}
+
+/* Horizontal Line for Block 2 on the Right */
+#block2::after {
+  content: "";
+  position: absolute;
+  right: -100px; /* Adjust if necessary to position the line */
+  top: 50%; /* Center the line vertically */
+  width: 200px; /* Increased length for block 2 */
+  height: 2px; /* Thickness of the line */
+  background-color: red; /* Color of the line */
+  transform: translateY(-50%); /* Center the line exactly */
+  transition: background-color 0.3s; /* Add transition for hover effects */
+}
+
+/* Horizontal Line for Block 3 (Increased Length) */
+#block3::before {
+  content: "";
+  position: absolute;
+  left: -179px; /* Shift the line's starting point */
+  top: 50%;
+  width: 180px; /* Increased length for block 3 */
+  height: 2px;
+  background-color: red;
+  transform: translateY(-50%);
+  transition: background-color 0.3s;
+}
+
+/* Horizontal Lines for Blocks 7 and 8 */
+#block7::before,
+#block8::before {
+  content: "";
+  position: absolute;
+  left: -110px; /* Align with the vertical line */
+  top: 50%;
+  width: 110px;
+  height: 2px;
+  background-color: red;
+  transform: translateY(-50%);
+  transition: background-color 0.3s;
+}
+
+/* Ensure left-connected blocks are aligned properly */
+.left-connected {
+  margin-right: auto;
+}
+
+/* Utility Hydraulic System Block Positioned at the End of Block 3's Horizontal Line */
+#utility-hydraulic-system {
+  position: absolute;
+  left: -480px; /* Align with the end of block 3's line */
+  top: calc(45% - 100px); /* Move it further up */
+  background-color: #ff9800; /* Default background color (off state) */
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+
+}
+
+#new-hydraulic-system.active {
+  background-color: blue;
+}
+
+#new-hydraulic-system:hover {
+  background-color: #ff5722;
+  transform: scale(1.15);
+}
+
+/* Auxiliary Hydraulic System Block (Box 10) */
+#auxiliary-hydraulic-system {
+  position: absolute;
+  left: calc(250px + 270px); /* Align with the same position as Booster Hydraulic System */
+  top: calc(1% + 280px); /* Positioned 30px below Booster Hydraulic System */
+  background-color: #ff9800; /* Same background as other hydraulic blocks */
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  width: auto;
+  height: auto;
+  text-align: center; /* Center-align text */
+  white-space: nowrap; /* Prevent text wrapping */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+#auxiliary-hydraulic-system.auxiliary-on {
+  background-color: red !important;
+}
+
+#auxiliary-hydraulic-system:hover {
+  background-color: #ff5722;
+  transform: scale(1.15);
+}
+
+/* Horizontal line connecting line 69 to block 9 */
+#line69-to-block9 {
+  content: "";
+  position: absolute;
+  right: -132px; /* Start from line 69 */
+  top: calc(5.3% + 50px); /* Align near block 2 */
+  width: 32px; /* Adjust length to reach block 9 */
+  height: 2px;
+  background-color: red; /* Match the color of the other lines */
+}
+
+
+#nose-landing-gear-emergency {
+  position: absolute;
+  left: calc(250px - 250px); /* Align with block 8 */
+  top: calc(1% + 485px); /* Positioned 35px below block 8 */
+  background-color: #2e2e2e; /* Same background as other hydraulic blocks */
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  width: auto;
+  height: auto;
+  text-align: center;
+  white-space: normal;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+
+}
+
+/* Emergency Brakes Block */
+#emergency-brakes {
+  position: absolute;
+  left: calc(250px - 250px); /* Align with the block above */
+  top: calc(
+    1% + 570px
+  ); /* Positioned 35px below the Nose Landing Gear Emergency Extension */
+  background-color: #2e2e2e; /* Same background as other hydraulic blocks */
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  width: auto;
+  height: auto;
+  text-align: left;
+  white-space: normal;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0s;
+}
+
+#emergency-brakes:hover {
+  background-color: #2e2e2e;
+  transform: scale(1);
+}
+
+/* Horizontal Dashed Line Below Emergency Brakes Block */
+#horizontal-dashed-line-below-emergency-brakes {
+  position: absolute;
+  left: calc(1px - 350px);
+  top: calc(1% + 645px); /* Positioned below the Emergency Brakes block */
+  width: 970px;
+  height: 2px;
+  border-top: 2px dashed red;
+}
+
+/* Cargo Ramp and Door Block */
+#cargo-ramp-door {
+  position: absolute;
+  left: calc(250px - 250px);
+  top: calc(1% + 420px); /* Positioned 35px below Emergency Brakes */
+  background-color: #2e2e2e; /* Same background as other hydraulic blocks */
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  width: auto;
+  height: auto;
+  text-align: left;
+  white-space: normal;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+/* Horizontal Lines for Blocks 1, 2, and 3 on the Right */
+#block1::after,
+#block2::after,
+#block3::after {
+  content: "";
+  position: absolute;
+  right: -100px; /* Position the line to the right */
+  top: 50%; /* Center the line vertically */
+  width: 100px; /* Length of the line */
+  height: 2px; /* Thickness of the line */
+  background-color: red; /* Color of the line */
+  transform: translateY(-50%); /* Center the line exactly */
+  transition: background-color 0.3s;
+}
+
+/* Utility Hydraulic System Highlight (Yellow) */
+.utility-highlight {
+  background-color: orange !important;
+}
+
+/* Booster Hydraulic System Highlight (Blue) */
+.booster-highlight {
+  background-color: blue !important;
+}
+
+/* Vertical middle highlight for Block 1 */
+.vertical-middle-highlight::before {
+  content: "";
+  position: absolute;
+  left: -110px; /* Align with horizontal lines */
+  top: 100;
+  bottom: 100;
+  width: 25px;
+  background-color: blue;
+  transition: background-color 0.3s;
+}
+
+#new-block {
+  position: absolute; /* Adjust position based on your layout */
+  left: calc(250px + 270px); /* Position it next to the Auxiliary Hydraulic System */
+  top: calc(1% + 400px); /* Adjust the value to move it 30px below Auxiliary Hydraulic System */
+  background-color: #2e2e2e; /* Maintain the same style as other blocks */
+  padding: 10px 20px; /* Adjust padding as needed */
+  border-radius: 5px;
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5);
+  width: auto; /* Set specific width if required, e.g., width: 150px; */
+  height: auto; /* Set specific height if required */
+  text-align: center; /* Center-align text inside the block */
+  white-space: nowrap; /* Prevent text wrapping */
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+#new-hydraulic-system {
+  position: absolute;
+  left: calc(250px + 50px); /* Aligns it with other blocks */
+  top: calc(1% + 45px); /* Position it accordingly */
+  background-color: #2e2e2e; /* Make the background consistent with other blocks */
+  padding: 10px 20px; /* Same padding as other blocks */
+  border-radius: 5px; /* Rounded corners for consistency */
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Consistent shadow effect */
+  width: auto; /* Automatic width based on content */
+  height: auto; /* Automatic height based on content */
+  text-align: center; /* Center the text */
+  white-space: nowrap; /* Prevent text wrapping */
+  cursor: pointer; /* Keep the cursor pointer for interaction */
+  transition: background-color 0.3s, transform 0.2s; /* Transition for interactivity */
+  font-size: 16px; /* Set font size */
+  color: white; /* Set text color to match other blocks */
+  font-family: "Arial", sans-serif; /* Use same font */
+  font-weight: bold; /* Make the text bold */
+}
+.booster-highlight {
+  background-color: blue; /* or any other color for highlighting */
+}.utility-highlight {
+  background-color: yellow; /* or any color for Utility Hydraulic System highlighting */
+}
+.ground-test-highlight {
+  background-color: orange; /* Customize the highlight color */
+}
+.booster-highlight {
+  background-color: blue; /* Customize the color for Booster System */
+}
+
+.utility-highlight {
+  background-color: yellow; /* Customize the color for Utility System */
+}
+
+.auxiliary-highlight {
+  background-color: red; /* Customize the color for Auxiliary System */
+}
+
+.ground-test-highlight {
+  background-color: orange; /* Customize the color for Ground Test System */
+}
+
+.vertical-middle-highlight::before {
+  content: "";
+  position: absolute;
+  left: -110px; /* Align with horizontal lines */
+  top: 100;
+  bottom: 100;
+  width: 25px;
+  background-color: blue;
+}
+.utility-highlight {
+  background-color: orange !important;
+}
+
+.booster-highlight {
+  background-color: blue !important;
+}
+
+.ground-test-highlight {
+  background-color: orange !important;
+}
+
+.auxiliary-highlight {
+  background-color: red !important;
+}
